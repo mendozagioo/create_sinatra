@@ -6,12 +6,18 @@ Is a simple class to generate the necessary files to begin with a commonly Sinat
 
 ## After create it
 Go to the name_app:
+
     $ cd <name_app>
 
+
 Run bundle:
+
     $ bundle install
 
+
 Run server:
+
     $ shotgun
 
-After this *ENJOY IT* `localhost:9393`
+
+After this **ENJOY IT** `localhost:9393`
