@@ -29,6 +29,7 @@ class CreateSinatra
     file_rakefile = File.new "../#{@name_app}/Rakefile", "w"
     file_readme = File.new "../#{@name_app}/README.md", "w"
     file_applicationjs = File.new "../#{@name_app}/assets/javascripts/application.js", "w"
+    file_applicationsass = File.new "../#{@name_app}/assets/stylesheets/application.sass", "w"
     file_local_en = File.new "../#{@name_app}/config/locales/en.yml", "w"
     file_local_es = File.new "../#{@name_app}/config/locales/es.yml", "w"
     file_layout_view = File.new "../#{@name_app}/views/layout.haml", "w"
@@ -40,6 +41,7 @@ class CreateSinatra
     create_rakefile_file(file_rakefile)
     create_readme_file(file_readme)
     create_applicationjs_file(file_applicationjs)
+    create_applicationsass_file(file_applicationsass)
     create_local_en_file(file_local_en)
     create_local_es_file(file_local_es)
     create_layout_view_file(file_layout_view)
@@ -138,6 +140,11 @@ Run the server with:
   def self.create_applicationjs_file(file)
     file.puts "// application.js
 //= require_tree ."
+    file.close
+  end
+
+  def self.create_applicationsass_file(file)
+    file.puts "@import \'cactu\'"
     file.close
   end
 
