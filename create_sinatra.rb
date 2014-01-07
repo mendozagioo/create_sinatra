@@ -11,6 +11,11 @@ class CreateSinatra
     FileUtils.mkdir_p "../#{@name_app}/assets/stylesheets"
     FileUtils.mkdir_p "../#{@name_app}/assets/fonts"
 
+    FileUtils.mkdir_p "../#{@name_app}/assets/stylesheets/config"
+    FileUtils.mkdir_p "../#{@name_app}/assets/stylesheets/mixins"
+    FileUtils.mkdir_p "../#{@name_app}/assets/stylesheets/pages"
+    FileUtils.mkdir_p "../#{@name_app}/assets/stylesheets/ui"
+
     FileUtils.mkdir_p "../#{@name_app}/config"
     FileUtils.mkdir_p "../#{@name_app}/config/locales"
 
@@ -34,6 +39,15 @@ class CreateSinatra
     file_local_es = File.new "../#{@name_app}/config/locales/es.yml", "w"
     file_layout_view = File.new "../#{@name_app}/views/layout.haml", "w"
     file_index_view = File.new "../#{@name_app}/views/index.haml", "w"
+
+    File.new "../#{@name_app}/assets/stylesheets/config/_responsive-large.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/config/_responsive-medium.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/config/_responsive-short.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/config/_variables.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_base.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_buttons.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_icons.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_lists.sass", "w"
 
     create_app_file(file_app)
     create_config_file(file_config)
