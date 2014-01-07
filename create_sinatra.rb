@@ -46,8 +46,12 @@ class CreateSinatra
     File.new "../#{@name_app}/assets/stylesheets/config/_variables.sass", "w"
     File.new "../#{@name_app}/assets/stylesheets/ui/_base.sass", "w"
     File.new "../#{@name_app}/assets/stylesheets/ui/_buttons.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_forms.sass", "w"
     File.new "../#{@name_app}/assets/stylesheets/ui/_icons.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_images.sass", "w"
     File.new "../#{@name_app}/assets/stylesheets/ui/_lists.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_tables.sass", "w"
+    File.new "../#{@name_app}/assets/stylesheets/ui/_texts.sass", "w"
 
     create_app_file(file_app)
     create_config_file(file_config)
@@ -85,6 +89,7 @@ class #{@name_app.capitalize} < Sinatra::Base
     sprockets.append_path File.join(root, \'assets\', \'fonts\')
     sprockets.append_path File.join(root, \'vendor\', \'javascripts\')
 
+    I18n.enforce_available_locales = false
     I18n.default_locale = :en
   end
 
@@ -158,7 +163,20 @@ Run the server with:
   end
 
   def self.create_applicationsass_file(file)
-    file.puts "@import \'cactu\'"
+    file.puts "@import \'cactu\'
+
+@import \'config/variables\'
+@import \'config/responsive-large\'
+@import \'config/responsive-medium\'
+@import \'config/responsive-short\'
+
+@import \'ui/base\'
+@import \'ui/texts\'
+@import \'ui/buttons\'
+@import \'ui/icons\'
+@import \'ui/tables\'
+@import \'ui/forms\'
+@import \'ui/images\'"
     file.close
   end
 
