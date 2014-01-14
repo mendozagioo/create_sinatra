@@ -75,7 +75,7 @@ Bundler.require
 require \'sinatra/i18n\'
 require \'sinatra/partial\'
 
-class #{@name_app.capitalize} < Sinatra::Base
+class Application < Sinatra::Base
   register Sinatra::AssetPipeline
   register Sinatra::I18n
 
@@ -110,7 +110,7 @@ end"
 
 require File.join(File.dirname(__FILE__), \'app.rb\')
 
-run #{@name_app.capitalize}.new"
+run Application.new"
     file.close
   end
 
@@ -140,13 +140,12 @@ gem \'sinatra-partial\'"
 require \'sinatra/asset_pipeline/task.rb\'
 require \'./app\'
 
-Sinatra::AssetPipeline::Task.define! #{@name_app.capitalize}"
+Sinatra::AssetPipeline::Task.define! Application"
     file.close
   end
 
   def self.create_readme_file(file)
-    file.puts "# #{@name_app.capitalize}
-Is a simple Sinatra app
+    file.puts "# A simple Sinatra app
 
 Please run bundle before to start:
     $ bundle install
