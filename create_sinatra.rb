@@ -75,7 +75,7 @@ Bundler.require
 require \'sinatra/i18n\'
 require \'sinatra/partial\'
 
-class Application < Sinatra::Base
+class App < Sinatra::Base
   register Sinatra::AssetPipeline
   register Sinatra::I18n
 
@@ -106,11 +106,11 @@ end"
   end
 
   def self.create_config_file(file)
-    file.puts "# This file is used by Rack-based servers to start the application.
+    file.puts "# This file is used by Rack-based servers to start the app.
 
 require File.join(File.dirname(__FILE__), \'app.rb\')
 
-run Application.new"
+run App.new"
     file.close
   end
 
@@ -140,7 +140,7 @@ gem \'sinatra-partial\'"
 require \'sinatra/asset_pipeline/task.rb\'
 require \'./app\'
 
-Sinatra::AssetPipeline::Task.define! Application"
+Sinatra::AssetPipeline::Task.define! App"
     file.close
   end
 
