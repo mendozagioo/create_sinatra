@@ -1,0 +1,21 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0 maximum-scale=1.0'}
+    %title= t('title')
+    %meta{name: "author", content: "Giovanni Mendoza"}
+    %meta{content: 'TITLE HERE', property: 'og:title'}
+    %meta{content: 'URL HERE', property: 'og:url'}
+    %meta{content: 'DESCRIPTION HERE', property: 'og:description'}
+    %meta{content: 'NAME DESCRIPTION HERE', name: 'description'}
+    %meta{name: "keywords", content: "KEYWORDS HERE"}
+    %link{rel: 'stylesheet', href: "http://fonts.googleapis.com/css?family=Oswald:400,300,700&subset=latin"}
+    %link{rel: 'stylesheet', href: "#{stylesheet_path 'application'}" }
+    %link{rel: "shortcut icon", type: "image/vnd.microsoft.icon", href: "#{image_path 'favicon.ico'}" }
+  %body
+
+    = yield
+
+    %script{type: "text/javascript", charset: "utf-8", src: "http://code.jquery.com/jquery-1.10.2.min.js"}
+    %script{src: "#{javascript_path 'application'}"}
